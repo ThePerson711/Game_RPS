@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock-Paper-Scissors</title>
+    <style>
+
+            body {
+                background-color: rgba(124, 206, 206, 0.5);
+                color: black;
+            }
+            .title_panel_js {
+                display: flex;
+                justify-content: center;
+            }
+            .title_js {
+                margin: 6px;
+                font-weight: bold;
+                font-size: 38px;
+                color: rgb(40, 40, 200);
+            }
+            .buttons_panel_js {
+                display: flex;
+                justify-content: center;
+            }
+            .rock_js, .paper_js, .scissors_js {
+                background-color: transparent;
+                width: 128px;
+                height: 128px;
+                border-radius: 64px;
+                border: 6px solid rgba(90,90,90,0.75);
+                margin: 8px;
+                box-shadow: 0 0 12px rgba(34, 89, 190, 0.75);
+            }
+            img {
+                width: 68px;
+                height: 68px;
+                background-color: transparent;
+            }
+            .results_panel_js {
+                display: grid;
+                justify-content: center;
+                margin: 18px;
+            }
+            .result_js, .moves_js, .score_js {
+                margin: 4px;
+                font-size: 26px;
+            }
+            .reset_panel_js {
+                display: flex;
+                justify-content: center;
+            }
+            .reset_score_js {
+                box-shadow: 0 0 12px rgba(34, 89, 190, 0.75);
+                margin: 12px;
+                font-size: 28px;
+                font-weight:bold;
+                border-radius: 16px;
+                border: 4px solid rgba(90,90,90,0.75);;
+                padding: 12px 26px;
+                background-color: rgba(124, 206, 206, 0.5);
+            }
+                    /* for computer */    
+        @media (min-width:1024px) and (max-width: 2048px) {
+            body {
+                background-color: rgb(211, 55, 211);
+            }
+        }
+        /* for planshet */    
+        @media (min-width: 768px) and (max-width: 1023px) {
+            body {
+                background-color: rgb(53, 79, 196);
+            }
+        }
+        /* for mobile */    
+        @media (min-width: 0px) and (max-width: 767px) {
+            body {
+                background-color: rgb(43, 198, 226);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main_panel_js">
+        <div class="title_panel_js">
+            <p class="title_js">Rock Ppaper Scissors</p>
+        </div>
+        <div class="buttons_panel_js">
+            <button class="rock_js" onclick="
+                    move.player = 'rock';
+                    Computers_move();
+                    Calculate_results();
+                    Calculate_score();
+                    Update_score();
+                    Alert_score();
+                ">
+                <img class="rock_pic" src="pic_/rock.png">
+            </button>
+            
+            <button class="paper_js" onclick="
+                    move.player = 'paper';
+                    Computers_move();
+                    Calculate_results();
+                    Calculate_score();
+                    Update_score();
+                    Alert_score();
+                ">
+                <img class="scissors_pic" src="pic_/paper.png">
+            </button>
+            <button class="scissors_js" onclick="
+                    move.player = 'scissors';
+                    Computers_move();
+                    Calculate_results();
+                    Calculate_score();
+                    Update_score();
+                    Alert_score();
+                ">
+                <img class="r_pic" src="pic_/scissors.png">
+            </button>
+        </div>
+        <div class="results_panel_js">
+            <div><p class="result_js">Rsesult</p></div>
+            <div><p class="moves_js">Move</p></div>
+            <div><p class="score_js">score</p></div>
+        </div>
+        <div class="reset_panel_js">
+            <button class="reset_score_js" onclick="
+                Reset_score();
+                ">
+                Reset score
+            </button>
+        </div>
+    </div>
+    <script>
+        let move = {
+            player: '',
+            computer: ''
+        }
+        let score = {
+            wins: 0,
+            loses: 0,
+            draws: 0
+        }
+        let random_number = 0;
+        let result ='';
+        Update_score();
+        function Computers_move() {
+            random_number = Math.random();
+            if (0 <= random_number && random_number < 1/3) {
+                move.computer = 'rock';
+            } else if (1/3 <= random_number && random_number < 2/3) {
+                move.computer = 'paper';
+            } else if (2/3 <= random_number && random_number < 1) {
+                move.computer = 'scissors';
+            }
+            //return move.computer;
+        }
+        function Calculate_results() {
+            if (move.player === 'rock') {
+                if (move.computer === 'rock') {
+                    result = 'draw';
+                } else if (move.computer === 'paper') {
+                    result = 'lose';
+                } else if (move.computer === 'scissors') {
+                    result = 'win';
+                }
+            }
+            if (move.player === 'paper') {
+                if (move.computer === 'rock') {
+                    result = 'win';
+                } else if (move.computer === 'paper') {
+                    result = 'draw';
+                } else if (move.computer === 'scissors') {
+                    result = 'lose';
+                }
+            }
+            if (move.player === 'scissors') {
+                if (move.computer === 'rock') {
+                    result = 'lose';
+                } else if (move.computer === 'paper') {
+                    result = 'win';
+                } else if (move.computer === 'scissors') {
+                    result = 'draw';
+                }
+            }
+        }
+        function Calculate_score() {
+            if (result === 'win') {
+                score.wins += 1 ;
+            } else if (result === 'lose') {
+                score.loses += 1;
+            } else if (result === 'draw') {
+                score.draws += 1;
+            }
+        }
+        function Update_score() {
+            document.querySelector('.result_js').innerHTML =
+                'You ' + result;
+            document.querySelector('.moves_js').innerHTML =
+                'Your move: ' + move.player + '. Computer`s move: ' + move.computer;
+            document.querySelector('.score_js').innerHTML =
+            'Wins: '+score.wins+'; Loses: '+score.loses+'; Draws: '+score.draws;
+        }
+        function Reset_score() {
+            score.wins = 0;
+            score.loses = 0;
+            score.draws = 0;
+            Update_score();
+        }
+    </script>
+</body>
+</html>
