@@ -208,7 +208,6 @@
                     Calculate_results();
                     Calculate_score();
                     Update_score();
-                    Alert_score();
                 ">
                 <img class="rock_pic" src="pic_/rock.png">
             </button>
@@ -219,7 +218,6 @@
                     Calculate_results();
                     Calculate_score();
                     Update_score();
-                    Alert_score();
                 ">
                 <img class="scissors_pic" src="pic_/paper.png">
             </button>
@@ -229,7 +227,6 @@
                     Calculate_results();
                     Calculate_score();
                     Update_score();
-                    Alert_score();
                 ">
                 <img class="r_pic" src="pic_/scissors.png">
             </button>
@@ -250,6 +247,7 @@
         </div>
     </div>
     <script>
+        console.log('asdasdasd');
         let move = {
             player: '',
             computer: ''
@@ -257,11 +255,21 @@
         let score = {
             wins: 0,
             loses: 0,
-            draws: 0
+            draws: 0 
         }
         let random_number = 0;
         let result ='';
+        console.log( JSON.parse( localStorage.getItem('score') ) );
+        score = JSON.parse( localStorage.getItem('score') );
+            if (!score) {
+                score = {
+                    wins: 0,
+                    loses: 0,
+                    draws: 0
+                }
+            } 
         Update_score();
+
         function Computers_move() {
             random_number = Math.random();
             if (0 <= random_number && random_number < 1/3) {
@@ -310,8 +318,10 @@
             } else if (result === 'draw') {
                 score.draws += 1;
             }
+            localStorage.setItem('score', JSON.stringify(score));
         }
         function Update_score() {
+            console.log( JSON.parse( localStorage.getItem('score') ) );
             document.querySelector('.result_js').innerHTML =
                 'You ' + result;
             document.querySelector('.moves_js').innerHTML =
@@ -323,6 +333,7 @@
             score.wins = 0;
             score.loses = 0;
             score.draws = 0;
+            localStorage.setItem('score', JSON.stringify(score));
             Update_score();
         }
     </script>
