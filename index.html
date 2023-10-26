@@ -4,6 +4,8 @@
     <title>Rock-Paper-Scissors</title>
     <style>
 
+        /* for mobile_biger */    
+        @media (min-width: 768px) and (max-width: 1081px) {
             body {
                 background-color: rgba(124, 206, 206, 0.5);
                 color: black;
@@ -13,68 +15,183 @@
                 justify-content: center;
             }
             .title_js {
-                margin: 6px;
+                margin: 20px;
                 font-weight: bold;
-                font-size: 38px;
+                font-size: 72px;
                 color: rgb(40, 40, 200);
             }
             .buttons_panel_js {
                 display: flex;
                 justify-content: center;
+                margin: 18px;
             }
             .rock_js, .paper_js, .scissors_js {
                 background-color: transparent;
-                width: 128px;
-                height: 128px;
-                border-radius: 64px;
-                border: 6px solid rgba(90,90,90,0.75);
-                margin: 8px;
-                box-shadow: 0 0 12px rgba(34, 89, 190, 0.75);
+                width: 248px;
+                height: 248px;
+                border-radius: 124px;
+                border: 10px solid rgba(90,90,90,0.75);
+                margin: 18px;
+                box-shadow: 0 0 24px rgba(34, 89, 190, 0.75);
             }
             img {
-                width: 68px;
-                height: 68px;
+                width: 128px;
+                height: 128px;
                 background-color: transparent;
             }
             .results_panel_js {
                 display: grid;
                 justify-content: center;
-                margin: 18px;
+                margin: 32px;
             }
             .result_js, .moves_js, .score_js {
-                margin: 4px;
-                font-size: 26px;
+                margin: 14px;
+                font-size: 36px;
+            }
+            .f_h_1 {
+                display: flex;
+                justify-content: center;
             }
             .reset_panel_js {
                 display: flex;
                 justify-content: center;
             }
             .reset_score_js {
-                box-shadow: 0 0 12px rgba(34, 89, 190, 0.75);
-                margin: 12px;
-                font-size: 28px;
+                box-shadow: 0 0 24px rgba(34, 89, 190, 0.75);
+                margin: 36px;
+                font-size: 46px;
                 font-weight:bold;
                 border-radius: 16px;
-                border: 4px solid rgba(90,90,90,0.75);;
-                padding: 12px 26px;
+                border: 6px solid rgba(90,90,90,0.75);;
+                padding: 20px 46px;
                 background-color: rgba(124, 206, 206, 0.5);
             }
-                    /* for computer */    
-        @media (min-width:1024px) and (max-width: 2048px) {
+        }
+
+        /* for computer */    
+        @media (min-width:1082px) {
             body {
-                background-color: rgb(211, 55, 211);
+                background-color: rgba(124, 206, 206, 0.9);
+                color: black;
+            }
+            .title_panel_js {
+                display: flex;
+                justify-content: center;
+            }
+            .title_js {
+                margin: 20px;
+                font-weight: bold;
+                font-size: 72px;
+                color: rgb(40, 40, 200);
+            }
+            .buttons_panel_js {
+                display: flex;
+                justify-content: center;
+                margin: 18px;
+            }
+            .rock_js, .paper_js, .scissors_js {
+                background-color: transparent;
+                width: 248px;
+                height: 248px;
+                border-radius: 124px;
+                border: 10px solid rgba(90,90,90,0.75);
+                margin: 18px;
+                box-shadow: 0 0 24px rgba(34, 89, 190, 0.75);
+            }
+            img {
+                width: 128px;
+                height: 128px;
+                background-color: transparent;
+            }
+            .results_panel_js {
+                display: grid;
+                justify-content: center;
+                margin: 32px;
+            }
+            .result_js, .moves_js, .score_js {
+                margin: 14px;
+                font-size: 36px;
+            }
+            .f_h_1 {
+                display: flex;
+                justify-content: center;
+            }
+            .reset_panel_js {
+                display: flex;
+                justify-content: center;
+            }
+            .reset_score_js {
+                box-shadow: 0 0 24px rgba(34, 89, 190, 0.75);
+                margin: 36px;
+                font-size: 46px;
+                font-weight:bold;
+                border-radius: 16px;
+                border: 6px solid rgba(90,90,90,0.75);;
+                padding: 20px 46px;
+                background-color: rgba(124, 206, 206, 0.5);
             }
         }
-        /* for planshet */    
-        @media (min-width: 768px) and (max-width: 1023px) {
-            body {
-                background-color: rgb(53, 79, 196);
-            }
-        }
-        /* for mobile */    
+        /* for mobile smaller */    
         @media (min-width: 0px) and (max-width: 767px) {
-            body {
-                background-color: rgb(43, 198, 226);
+           body {
+                background-color: rgba(124, 206, 206, 0.5);
+                color: black;
+            }
+            .title_panel_js {
+                display: flex;
+                justify-content: center;
+            }
+            .title_js {
+                margin: 20px;
+                font-weight: bold;
+                font-size: 54px;
+                color: rgb(40, 40, 200);
+            }
+            .buttons_panel_js {
+                display: flex;
+                justify-content: center;
+                margin: 18px;
+            }
+            .rock_js, .paper_js, .scissors_js {
+                background-color: transparent;
+                width: 180px;
+                height: 180px;
+                border-radius: 124px;
+                border: 8px solid rgba(90,90,90,0.75);
+                margin: 10px;
+                box-shadow: 0 0 18px rgba(34, 89, 190, 0.75);
+            }
+            img {
+                width: 96px;
+                height: 96px;
+                background-color: transparent;
+            }
+            .results_panel_js {
+                display: grid;
+                justify-content: center;
+                margin: 32px;
+            }
+            .result_js, .moves_js, .score_js {
+                margin: 14px;
+                font-size: 28px;
+            }
+            .f_h_1 {
+                display: flex;
+                justify-content: center;
+            }
+            .reset_panel_js {
+                display: flex;
+                justify-content: center;
+            }
+            .reset_score_js {
+                box-shadow: 0 0 20px rgba(34, 89, 190, 0.75);
+                margin: 12px;
+                font-size: 36px;
+                font-weight:bold;
+                border-radius: 16px;
+                border: 5px solid rgba(90,90,90,0.75);;
+                padding: 20px 46px;
+                background-color: rgba(124, 206, 206, 0.5);
             }
         }
     </style>
@@ -82,7 +199,7 @@
 <body>
     <div class="main_panel_js">
         <div class="title_panel_js">
-            <p class="title_js">Rock Ppaper Scissors</p>
+            <p class="title_js">Rock - Paper - Scissors</p>
         </div>
         <div class="buttons_panel_js">
             <button class="rock_js" onclick="
@@ -118,9 +235,11 @@
             </button>
         </div>
         <div class="results_panel_js">
-            <div><p class="result_js">Rsesult</p></div>
-            <div><p class="moves_js">Move</p></div>
-            <div><p class="score_js">score</p></div>
+            <div class="f_h_1"><p class="result_js"></p></div>
+            <div class="f_h_1">
+                <p class="moves_js">Move</p>
+            </div>
+            <div class="f_h_1"><p class="score_js">score</p></div>
         </div>
         <div class="reset_panel_js">
             <button class="reset_score_js" onclick="
